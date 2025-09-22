@@ -80,7 +80,7 @@ export default function FingerPrint() {
     if (result.success) setIsAuthenticated(true);
     else {
       setIsAuthenticated(false);
-      Alert.alert("Failed", "Authentication failed");
+      //Alert.alert("Failed", "Authentication failed");
     }
   }
   useEffect(() => {
@@ -94,7 +94,6 @@ export default function FingerPrint() {
       if (appState.match(/inactive|background/) && nextAppState === "active" && x === 0) {
         x++
         setIsAuthenticated(false)
-        console.log(++x, nextAppState)
         authenticate();
       }
       setAppState(nextAppState);
@@ -104,8 +103,6 @@ export default function FingerPrint() {
       x = 0
     }
   }, [appState]);
-
-alert(isAuthenticated)
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {isAuthenticated ? (
